@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		#loading-indicator, body.chart-page{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+
+<body style="background-color:#181328">
+	<div id="tv_chart_container"></div>
+	<script src="./jquery.min.js"></script>
+	<script src="./charting_library/charting_library.min.js"></script>
+	<script src="./datafeeds/socket/updater.js"></script>
+	<script src="./datafeeds/socket/datafees.js"></script>
+	<script src="./datafeeds/socket/socket.js"></script>
+	<script src="./datafeeds/socket/wsconfig.js"></script>
+
+	<script>
+
+		function getArgs(qs) {
+
+			// 检测是否含有？
+			let search = qs;
+			if (qs.startsWith("?")) search = qs.slice(1);
+
+			const params = {};
+
+			search.split("&").forEach(item => {
+				let pos = item.indexOf("=");
+				let name = item.slice(0, pos),
+					value = item.slice(pos + 1);
+				params[name] = value;
+			});
+
+			return params;
+		}
+
+		let { id, type } = getArgs(location.search);
+		if (type == 1 && id) {
+			$.ajax({
+				type: "get",
+				url: `/apis/coin/market/getMarketInfoById`,
+				dataType: "json",
+				data : {
+					marketId : id,
+				},
+				success(response) {
+					let { id, marketName, priceDecimals } = response.data;
+					 
+					const tv = new Wsconfig(id, marketName, 1, Math.pow(10, priceDecimals));
+					tv.init();
+				},
+			})
+		} else if (type == 2 && id) {
+			$.ajax({
+				type: "get",
+				url: `/apis/futures/getById/${id}`,
+				dataType: "json",
+				success(response) {
+					let { id, name, priceDecimals } = response.data;
+					let dec = priceDecimals.toString().split(".").pop().length;
+					const tv = new Wsconfig(id, name, 2, Math.pow(10, dec));
+					tv.init();
+				},
+			})
+		}
+	</script>
+</body>
+
+
+</html>

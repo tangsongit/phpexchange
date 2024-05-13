@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="11px" viewBox="0 0 29 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>2@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="13.300497%" y1="43.7222287%" x2="100%" y2="57.4591567%" id="linearGradient-1">
+            <stop stop-color="#E884E8" offset="0%"></stop>
+            <stop stop-color="#7B66C5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="VirgoX-Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.4Login弹窗3备份-12" transform="translate(-658.000000, -627.000000)" fill="url(#linearGradient-1)">
+            <g id="anniu2" transform="translate(644.500000, 605.000000)">
+                <path d="M34.6682513,22.1417459 L41.7088042,27.5202765 L34.6682513,32.8988071 L34.6682513,22.1417459 Z M20.8988071,22.1417459 L20.8988071,32.8988071 L13.8582541,27.5202765 L20.8988071,22.1417459 Z M27.7835292,25.0202765 C29.1642411,25.0202765 30.2835292,26.1395646 30.2835292,27.5202765 C30.2835292,28.9009884 29.1642411,30.0202765 27.7835292,30.0202765 C26.4028173,30.0202765 25.2835292,28.9009884 25.2835292,27.5202765 C25.2835292,26.1395646 26.4028173,25.0202765 27.7835292,25.0202765 Z" id="2"></path>
+            </g>
+        </g>
+    </g>
+</svg>

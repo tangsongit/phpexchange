@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="disk/slidercaptcha.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="disk/longbow.slidercaptcha.js"></script>
+
+    <div id="captcha"></div>
+    
+    <script>
+
+        function getArgs(qs) {
+
+            // 检测是否含有？
+            let search = decodeURIComponent(qs);
+            if (search.startsWith("?")) search = search.slice(1);
+
+            const params = {};
+
+            search.split("&").forEach(item => {
+                let pos = item.indexOf("=");
+                let name = item.slice(0, pos),
+                    value = item.slice(pos + 1);
+                params[name] = value;
+            });
+
+            return params;
+        }
+
+        // 提取请求参数
+        var { account, slider_type, nextStep, lang } = getArgs(location.search);
+
+        var tokenCode;  // 接收token
+        $captcha = $('#captcha').sliderCaptcha({
+            // 文案设置
+            loadingText : 'Processing...',
+            failedText : 'Try Again',
+            barText : 'Slide to fill the puzzle',
+            // 画布的大小
+            width: 275,
+            height: 178,
+            offset: 5, // 容错像素值
+            remoteUrl : window.parent.api_path,
+            verify: function (datas, url) { // 服务端验证方法 
+                let ret = false;
+                $.ajax(url, {
+                    type: 'POST',
+                    data: JSON.stringify({
+                        datas,
+                        account,
+                        slider_type,
+                    }),
+                    async: false,
+                    cache: false,
+                    contentType: 'application/json',
+                    headers: { lang },
+                    success: function (response) {
+                        tokenCode = response.data.token;
+                        if (response.code == 200) {
+                            ret = true;
+                        } else {
+                            ret = false;
+                        }
+                    }
+                });
+                return ret;
+            },
+
+            onSuccess: function () {  //成功事件
+                // 刷新并跳转
+                $captcha.sliderCaptcha('reset');
+                window.parent[nextStep](tokenCode);
+            },
+
+            onFail: function () { // 自动刷新    
+                // $captcha.sliderCaptcha('reset');
+            },
+
+            onRefresh: function () {
+                $captcha.sliderCaptcha('reset');
+            },
+
+            setSrc: function () {
+                return './imgs/slice' + Math.ceil(Math.random() * 5) + '@2x.png';
+            },
+        });
+
+        // $('.refresh').click(function () {
+        //     $captcha.sliderCaptcha('reset');
+        // });
+
+        // $('.close').click(function () {
+        //     window.parent.closeBox();
+        // });
+    </script>
+</body>
+
+</html>
