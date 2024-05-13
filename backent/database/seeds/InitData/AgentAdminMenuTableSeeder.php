@@ -1,0 +1,493 @@
+<?php
+
+namespace Database\Seeds\InitData;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class AgentAdminMenuTableSeeder extends Seeder
+{
+
+    /**
+     * Auto generated seed file
+     *
+     * @return void
+     */
+    public function run()
+    {
+
+
+        DB::table('agent_admin_menu')->delete();
+
+        DB::table('agent_admin_menu')->insert(array(
+            0 =>
+            array(
+                'id' => 1,
+                'parent_id' => 0,
+                'order' => 1,
+                'title' => '首页',
+                'icon' => 'feather icon-bar-chart-2',
+                'uri' => '/',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-17 18:04:54',
+                'updated_at' => '2021-08-06 10:02:38',
+            ),
+            1 =>
+            array(
+                'id' => 2,
+                'parent_id' => 0,
+                'order' => 2,
+                'title' => 'Admin',
+                'icon' => 'feather icon-settings',
+                'uri' => NULL,
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-17 18:04:54',
+                'updated_at' => '2021-08-06 10:02:35',
+            ),
+            2 =>
+            array(
+                'id' => 3,
+                'parent_id' => 2,
+                'order' => 3,
+                'title' => 'Users',
+                'icon' => NULL,
+                'uri' => 'auth/users',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-17 18:04:54',
+                'updated_at' => '2021-08-06 10:02:34',
+            ),
+            3 =>
+            array(
+                'id' => 4,
+                'parent_id' => 2,
+                'order' => 4,
+                'title' => 'Roles',
+                'icon' => NULL,
+                'uri' => 'auth/roles',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-17 18:04:54',
+                'updated_at' => '2021-08-06 10:02:32',
+            ),
+            4 =>
+            array(
+                'id' => 5,
+                'parent_id' => 2,
+                'order' => 5,
+                'title' => 'Permission',
+                'icon' => NULL,
+                'uri' => 'auth/permissions',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-17 18:04:54',
+                'updated_at' => '2021-08-06 10:02:31',
+            ),
+            5 =>
+            array(
+                'id' => 6,
+                'parent_id' => 2,
+                'order' => 6,
+                'title' => 'Menu',
+                'icon' => NULL,
+                'uri' => 'auth/menu',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-17 18:04:54',
+                'updated_at' => '2021-08-06 10:02:31',
+            ),
+            6 =>
+            array(
+                'id' => 9,
+                'parent_id' => 59,
+                'order' => 15,
+                'title' => '直推列表',
+                'icon' => 'fa-users',
+                'uri' => 'user/user-list',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-20 16:24:46',
+                'updated_at' => '2021-08-06 09:47:45',
+            ),
+            7 =>
+            array(
+                'id' => 18,
+                'parent_id' => 0,
+                'order' => 18,
+                'title' => '财务管理',
+                'icon' => 'fa-usd',
+                'uri' => NULL,
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-07-14 18:01:55',
+                'updated_at' => '2021-08-02 17:09:20',
+            ),
+            8 =>
+            array(
+                'id' => 19,
+                'parent_id' => 18,
+                'order' => 19,
+                'title' => '充币记录',
+                'icon' => 'fa-bitcoin',
+                'uri' => 'finance/recharge',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-07-14 18:08:27',
+                'updated_at' => '2021-08-06 15:52:55',
+            ),
+            9 =>
+            array(
+                'id' => 22,
+                'parent_id' => 18,
+                'order' => 20,
+                'title' => '提币记录',
+                'icon' => NULL,
+                'uri' => 'finance/withdraw',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-07-24 11:31:04',
+                'updated_at' => '2021-08-03 17:22:05',
+            ),
+            10 =>
+            array(
+                'id' => 23,
+                'parent_id' => 0,
+                'order' => 8,
+                'title' => '代理中心',
+                'icon' => 'fa-user-o',
+                'uri' => NULL,
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-06-18 10:02:13',
+                'updated_at' => '2021-08-06 10:02:25',
+            ),
+            11 =>
+            array(
+                'id' => 25,
+                'parent_id' => 23,
+                'order' => 9,
+                'title' => '代理列表',
+                'icon' => 'fa-address-book-o',
+                'uri' => 'agent/list',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-07-27 10:26:41',
+                'updated_at' => '2021-08-02 17:09:20',
+            ),
+            12 =>
+            array(
+                'id' => 31,
+                'parent_id' => 18,
+                'order' => 21,
+                'title' => '划转记录',
+                'icon' => NULL,
+                'uri' => 'finance/transfer',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-07-27 19:36:17',
+                'updated_at' => '2021-08-03 18:48:33',
+            ),
+            13 =>
+            array(
+                'id' => 43,
+                'parent_id' => 18,
+                'order' => 22,
+                'title' => '用户资产',
+                'icon' => NULL,
+                'uri' => 'finance/user-assets',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-10-15 16:24:51',
+                'updated_at' => '2021-08-03 19:04:31',
+            ),
+            14 =>
+            array(
+                'id' => 44,
+                'parent_id' => 18,
+                'order' => 23,
+                'title' => '资产明细',
+                'icon' => NULL,
+                'uri' => 'finance/user-wallet-log',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2020-10-15 16:25:23',
+                'updated_at' => '2021-08-03 20:23:31',
+            ),
+            15 =>
+            array(
+                'id' => 55,
+                'parent_id' => 23,
+                'order' => 11,
+                'title' => '合约结算',
+                'icon' => NULL,
+                'uri' => 'contract-settlement',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-07-12 15:52:13',
+                'updated_at' => '2021-07-29 11:12:34',
+            ),
+            16 =>
+            array(
+                'id' => 57,
+                'parent_id' => 23,
+                'order' => 12,
+                'title' => '期权结算',
+                'icon' => NULL,
+                'uri' => 'option-settlement',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-07-12 15:53:53',
+                'updated_at' => '2021-08-06 09:46:42',
+            ),
+            17 =>
+            array(
+                'id' => 58,
+                'parent_id' => 23,
+                'order' => 13,
+                'title' => '代理业绩',
+                'icon' => NULL,
+                'uri' => 'performance',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-07-12 15:54:08',
+                'updated_at' => '2021-08-06 09:46:42',
+            ),
+            18 =>
+            array(
+                'id' => 59,
+                'parent_id' => 0,
+                'order' => 14,
+                'title' => '用户中心',
+                'icon' => 'fa-users',
+                'uri' => NULL,
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-02 10:26:01',
+                'updated_at' => '2021-08-06 09:47:45',
+            ),
+            19 =>
+            array(
+                'id' => 60,
+                'parent_id' => 59,
+                'order' => 16,
+                'title' => '团队列表',
+                'icon' => 'fa-group',
+                'uri' => 'user/team-list',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-02 13:52:39',
+                'updated_at' => '2021-08-06 09:47:45',
+            ),
+            20 =>
+            array(
+                'id' => 61,
+                'parent_id' => 23,
+                'order' => 10,
+                'title' => '返佣记录(合约)',
+                'icon' => 'fa-google-wallet',
+                'uri' => 'agent/contract-rebate',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-02 17:08:48',
+                'updated_at' => '2021-08-07 01:54:29',
+            ),
+            21 =>
+            array(
+                'id' => 62,
+                'parent_id' => 0,
+                'order' => 24,
+                'title' => '期权交易',
+                'icon' => NULL,
+                'uri' => NULL,
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 16:57:13',
+                'updated_at' => '2021-08-04 17:01:39',
+            ),
+            22 =>
+            array(
+                'id' => 63,
+                'parent_id' => 62,
+                'order' => 25,
+                'title' => '期权订单',
+                'icon' => NULL,
+                'uri' => 'option/option-order',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 16:57:30',
+                'updated_at' => '2021-08-04 17:03:53',
+            ),
+            23 =>
+            array(
+                'id' => 64,
+                'parent_id' => 0,
+                'order' => 26,
+                'title' => '合约交易',
+                'icon' => NULL,
+                'uri' => NULL,
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 16:58:11',
+                'updated_at' => '2021-08-04 17:01:39',
+            ),
+            24 =>
+            array(
+                'id' => 65,
+                'parent_id' => 64,
+                'order' => 27,
+                'title' => '合约委托',
+                'icon' => NULL,
+                'uri' => 'contract/contract-entrust',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 16:59:43',
+                'updated_at' => '2021-08-04 20:42:01',
+            ),
+            25 =>
+            array(
+                'id' => 66,
+                'parent_id' => 64,
+                'order' => 28,
+                'title' => '合约持仓',
+                'icon' => NULL,
+                'uri' => 'contract/contract-position',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 17:00:06',
+                'updated_at' => '2021-08-04 21:17:34',
+            ),
+            26 =>
+            array(
+                'id' => 67,
+                'parent_id' => 64,
+                'order' => 29,
+                'title' => '穿仓记录',
+                'icon' => NULL,
+                'uri' => 'contract/contract-wear-position-record',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 17:00:29',
+                'updated_at' => '2021-08-04 21:24:25',
+            ),
+            27 =>
+            array(
+                'id' => 68,
+                'parent_id' => 64,
+                'order' => 30,
+                'title' => '合约账户',
+                'icon' => NULL,
+                'uri' => 'contract/contract-account',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 17:01:06',
+                'updated_at' => '2021-08-04 21:24:32',
+            ),
+            28 =>
+            array(
+                'id' => 69,
+                'parent_id' => 64,
+                'order' => 31,
+                'title' => '申购记录',
+                'icon' => NULL,
+                'uri' => 'contract/contract-purchase',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-04 17:01:21',
+                'updated_at' => '2021-08-04 21:24:37',
+            ),
+            29 =>
+            array(
+                'id' => 71,
+                'parent_id' => 0,
+                'order' => 33,
+                'title' => '币币交易',
+                'icon' => NULL,
+                'uri' => NULL,
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-05 16:37:39',
+                'updated_at' => '2021-08-05 16:37:39',
+            ),
+            30 =>
+            array(
+                'id' => 72,
+                'parent_id' => 71,
+                'order' => 34,
+                'title' => '买入委托',
+                'icon' => 'fa-buysellads',
+                'uri' => 'exchange/trade-buy',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-05 16:42:43',
+                'updated_at' => '2021-08-06 15:53:31',
+            ),
+            31 =>
+            array(
+                'id' => 73,
+                'parent_id' => 71,
+                'order' => 35,
+                'title' => '卖出委托',
+                'icon' => 'fa-buysellads',
+                'uri' => 'exchange/trade-sell',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-05 16:43:12',
+                'updated_at' => '2021-08-06 15:53:49',
+            ),
+            32 =>
+            array(
+                'id' => 74,
+                'parent_id' => 71,
+                'order' => 36,
+                'title' => '成交记录',
+                'icon' => 'fa-exchange',
+                'uri' => 'exchange/trade-order',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-05 16:43:46',
+                'updated_at' => '2021-08-06 15:54:11',
+            ),
+            33 =>
+            array(
+                'id' => 75,
+                'parent_id' => 64,
+                'order' => 32,
+                'title' => '成交记录',
+                'icon' => 'fa-exchange',
+                'uri' => 'contract/contract-order',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-05 16:45:47',
+                'updated_at' => '2021-08-06 15:54:21',
+            ),
+            34 =>
+            array(
+                'id' => 76,
+                'parent_id' => 0,
+                'order' => 13,
+                'title' => '盈亏(渠道商专属)',
+                'icon' => '',
+                'uri' => 'profitandloss',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-16 14:20:43',
+                'updated_at' => '2021-08-16 14:21:31',
+            ),
+            35 =>
+            array(
+                'id' => 77,
+                'parent_id' => 76,
+                'order' => 36,
+                'title' => '合约盈亏详细',
+                'icon' => '',
+                'uri' => 'profitandloss/contract-entrust-profit',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2021-08-16 14:22:14',
+                'updated_at' => '2021-08-16 15:11:22',
+            ),
+        ));
+    }
+}
